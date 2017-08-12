@@ -5,7 +5,7 @@ module.exports = function(app){
     });
 
 
-    app.user(function(req,res){
+    app.use(function(req,res){
         res.sendFile(path.join(_dirname, "/../public/home.html"));
     });
 
