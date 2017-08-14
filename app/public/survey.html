@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class='container'>
+        <h1>Survey Questions</h1>
+        <hr>
+        <h2>About You</h2>
+        <div class="form-group">
+		    <label>Name</label>
+		    <input type="text" class="form-control" id="name">
+		</div>
+        <div class="form-group">
+		    <label>Link to Photo Image</label>
+		    <input type="text" class="form-control" id="link">
+		</div>
+        <hr>
+        <div class="form-group">
+            <h3>Question 1</h3>
+			<label>Your mind is always buzzing with unexplored ideas and plans.</label>
+				<select class="form-control" id='question1'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 2</h3>
+			<label>Generally speaking, you rely more on your experience than your imagination.</label>
+				<select class="form-control" id='question2'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 3</h3>
+			<label>You find it easy to stay relaxed and focused even when there is some pressure.</label>
+				<select class="form-control" id='question3'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 4</h3>
+			<label>You rarely do something just out of sheer curiosity.</label>
+				<select class="form-control" id='question4'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 5</h3>
+			<label>People can rarely upset you.</label>
+				<select class="form-control" id='question5'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 6</h3>
+			<label>It is often difficult for you to relate to other people's feelings.</label>
+				<select class="form-control" id='question6'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 7</h3>
+			<label>In a discussion, truth should be more important than people's sensitivities.</label>
+				<select class="form-control" id='question7'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 8</h3>
+			<label>You rarely get carried away by fantasies and ideas.</label>
+				<select class="form-control" id='question8'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 9</h3>
+			<label>You think that everyone's views should be respected regardless of whether they are supported by facts or not.</label>
+				<select class="form-control" id='question9'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        <div class="form-group">
+            <h3>Question 10</h3>
+			<label>You feel more energetic after spending time with a group of people.</label>
+				<select class="form-control" id='question10'>
+				    <option>1</option>
+			      	<option>2</option>
+				  	<option>3</option>
+				  	<option>4</option>
+				  	<option>5</option>
+				</select>
+		</div>
+        
+        <button type='submit' class='btn btn-primary' id='submitInfo'>Submit</button>
+
+
+        <hr>
+
+        <p>
+            <a href = '/api/friends'>API FRIENDS LIST</a>
+        </p>
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>    
+    <script>
+        $('#submitInfo').on("click", function(){
+            var info = {
+                name: $('#name').val(),
+                photo:$('#link').val(),
+                scores:[parseInt($('#question1').val(),10), parseInt($('#question2').val(),10), parseInt($('#question3').val(),10), parseInt($('#question4').val(),10), parseInt($('#question5').val(),10), parseInt($('#question6').val(),10),
+                parseInt($('#question7').val(),10), parseInt($('#question8').val(),10), parseInt($('#question9').val(),10), parseInt($('#question10').val(),10)]
+            }
+
+            var url = window.location.origin;
+
+
+            $.post(url + "/api/friends", info, function(data){
+                console.log(data.name);
+                console.log(data.photo);
+                //console.log(data);
+            });
+        });
+    </script>
+</body>
+</html>
